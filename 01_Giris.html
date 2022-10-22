@@ -1,0 +1,38 @@
+<!--https://vuejs.org/guide/quick-start.html#creating-a-vue-application-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01_Giris</title>
+    <!--<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>Test</h1>
+        <h3>{{title}}</h3>
+        <button>{{buttonTitle}}</button>
+        <p>{{aciklama}}</p>
+        <p v-text="aciklama"></p>
+        <a v-bind:href="link" v-bind:id="idsi">erdincdonmez</a>
+        <p v-html="veri1"></p>
+    </div>
+    <script>
+        //alert("Merhaba");
+        new Vue({
+            el : "#app",
+            data:{
+                title : "test başlık",
+                buttonTitle : "Tıkla gelsin",
+                aciklama : "Açıklama",
+                link : "http://erdincdonmez.com/",
+                idsi : "baglanti",
+                veri1 : "Bu <b>önemli detay<b>"
+            }
+        }
+        );
+    </script>
+</body>
+</html>
