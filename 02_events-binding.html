@@ -1,0 +1,53 @@
+<!--https://vuejs.org/guide/quick-start.html#creating-a-vue-application-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02_event binding</title>
+    <!--<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body style-="margin:0px;">
+    <div id="app">
+        <input v-on:keypress="ekle($event)" type="text">
+        <input @keypress="ekle($event)" type="text">
+        <input @keypress.enter="ekle1($event)" type="text">
+        <button v-on:keypress="ekle()">Ekle</button>
+        <button v-on:click="artir()">Artır</button>
+        <button v-on:mouseover="artir()">Artır1</button>
+        <button v-on:click="bos()">bos</button>
+        <button v-on:click="bos1('Bu da boş bir düğme, tıklama')">bos1</button>
+        <p v-text="sayi">Sayi</p>
+        <p>{{sayi}}</p>
+    </div>
+    <script>
+        new Vue({
+            el : "#app",
+            data:{
+                sayi:0,
+                
+            },
+            methods : {
+                artir(){
+                    this.sayi++;
+                },
+                bos(){
+                    alert("bu düğmeye basmayacaktın.");
+                },
+                ekle(gelen){
+                    if (gelen.keyCode == 13)    
+                    this.sayi+= parseInt(gelen.target.value);
+                },
+                ekle1(gelen){
+                    this.sayi+= parseInt(gelen.target.value);
+                },
+                bos1(pp){
+                    alert(pp);
+                }
+            }
+        });
+    </script>
+ </body>
+</html>
