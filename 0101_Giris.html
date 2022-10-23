@@ -1,0 +1,124 @@
+<!--https://vuejs.org/guide/quick-start.html#creating-a-vue-application-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01_Giris</title>
+    <!--<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>Test</h1>
+        <h3>{{title}}</h3>
+        <button>{{buttonTitle}}</button>
+        <p>{{aciklama}}</p>
+        <p v-text="aciklama"></p>
+        <a v-bind:href="link" v-bind:id="idsi">erdincdonmez</a>
+        <a :href="link" v-bind:id="idsi">erdincdonmez</a>
+        <p v-html="veri1"></p>
+    </div>
+    <script>
+        //alert("Merhaba");
+        new Vue({
+            el : "#app",
+            data:{
+                title : "test başlık",
+                buttonTitle : "Tıkla gelsin",
+                aciklama : "Açıklama",
+                link : "http://erdincdonmez.com/",
+                idsi : "baglanti",
+                veri1 : "Bu <b>önemli detay<b>"
+            }
+        }
+        );
+    </script>
+  <hr>
+  <p>
+      <ol>
+        <li>head içine script referansını ekle
+        <pre>
+            &lt;script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script&gt;
+        </pre>
+        </li>
+        <li>script elementi içerisinde new ile yeni bir vue uygulaması başlat</li>
+        <pre>
+            new Vue({
+          
+            });
+        </pre>
+        <li>bir div (veya herhangi bir elemen oluştur, idsini ver</li>
+        <pre>
+          &lt;div id="app">
+          
+          &lt;/div>
+        </pre>
+        <li>yeni uygulamada yöneteceğin elementi seç</li>
+        <pre>
+          new Vue({
+            el : "#app",//id'si app olan div elementini seçtik.
+        }
+        );
+        </pre>
+        <li>data ları ekle</li>
+        <pre>
+          data:{
+                title : "test başlık",
+                buttonTitle : "Tıkla gelsin",
+                aciklama : "Açıklama",
+                link : "http://erdincdonmez.com/",
+                idsi : "baglanti",
+                veri1 : "Bu <b>önemli detay<b>"
+            },
+        </pre>
+        <li>html elementlerine dataları yazdır.</li>
+        <pre>
+        &lt;div id="app">
+            &lt;h1>Test&lt;/h1>
+            &lt;h3>{{title}}&lt;/h3>
+            &lt;button>{{buttonTitle}}&lt;/button>
+            &lt;p>{{aciklama}}&lt;/p>
+            &lt;p v-text="aciklama">&lt;/p>
+            &lt;a v-bind:href="link" v-bind:id="idsi">erdincdonmez&lt;/a>
+            &lt;a :href="link" v-bind:id="idsi">erdincdonmez&lt;/a>
+            &lt;p v-html="veri1">&lt;/p>
+        &lt;/div> 
+        </pre>
+      </ol>
+                  <h2>Kodların son durumu:</h2>
+                  <pre>
+&lt;body&gt;
+    &lt;div id="app"&gt;
+        &lt;h1&gt;Test&lt;/h1&gt;
+        &lt;h3&gt;{{title}}&lt;/h3&gt;
+        &lt;button&gt;{{buttonTitle}}&lt;/button&gt;
+        &lt;p&gt;{{aciklama}}&lt;/p&gt;
+        &lt;p v-text="aciklama"&gt;&lt;/p&gt;
+        &lt;a v-bind:href="link" v-bind:id="idsi"&gt;erdincdonmez&lt;/a&gt;
+        &lt;a :href="link" v-bind:id="idsi"&gt;erdincdonmez&lt;/a&gt;
+        &lt;p v-html="veri1"&gt;&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        //alert("Merhaba");
+        new Vue({
+            el : "#app",
+            data:{
+                title : "test başlık",
+                buttonTitle : "Tıkla gelsin",
+                aciklama : "Açıklama",
+                link : "http://erdincdonmez.com/",
+                idsi : "baglanti",
+                veri1 : "Bu &lt;b&gt;önemli detay&lt;b&gt;"
+            }
+        }
+        );
+    &lt;/script&gt;
+&lt;body&gt;
+           
+                    
+                  </pre>
+    </p>
+</body>
+</html>
