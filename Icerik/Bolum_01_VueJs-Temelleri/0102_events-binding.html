@@ -1,0 +1,110 @@
+<!--https://vuejs.org/guide/quick-start.html#creating-a-vue-application-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02_event binding</title>
+    <!--<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body style-="margin:0px;">
+    <div id="app">
+      <h1>event (olay) örnekleri.</h1>
+      <h2>ilk üç kutuya bir sayı yaz ve enter tuşuna bas</h2>
+        <input v-on:keypress="ekle($event)" type="text">
+        <input @keypress="ekle($event)" type="text">
+        <input @keypress.enter="ekle1($event)" type="text">
+        <input @input="aktar($event)" type="text">
+        <button v-on:keypress="ekle()">Ekle</button>
+        <button v-on:click="artir()">Değerleri artırmak için tıkla</button>
+        <button v-on:mouseover="artir()">Değerleri artırmak için üzerime gel</button>
+        <button v-on:click="bos()">Sabit mesaj göster</button>
+        <button v-on:click="bos1('Buton ile gönderilen mesaj')">İstenilen mesajı göster</button>
+        <p v-text="sayi">Sayi</p>
+        <p>{{sayi}}</p>
+        <p>{{mesaj}}</p>
+    </div>
+    <script>
+        new Vue({
+            el : "#app",
+            data:{
+                sayi:0,
+                mesaj : "4.Kutuya bir şeyler yaz."
+            },
+            methods : {
+                artir(){
+                    this.sayi++;
+                },
+                bos(){
+                    alert("Sabit mesaj.");
+                },
+                ekle(gelen){
+                    if (gelen.keyCode == 13)    
+                    this.sayi+= parseInt(gelen.target.value);
+                },
+                ekle1(gelen){
+                    this.sayi+= parseInt(gelen.target.value);
+                },
+                bos1(pp){
+                    alert(pp);
+                },
+                aktar(gelen){
+                    this.mesaj= gelen.target.value;
+                },
+            }
+        });
+    </script>
+  <hr>
+  <h2>Yukarıdaki örneğin kodları:</h2>
+  <pre>
+    &lt;div id="app"&gt;
+      &lt;h1&gt;event (olay) örnekleri.&lt;/h1&gt;
+      &lt;h2&gt;ilk üç kutuya bir sayı yaz ve enter tuşuna bas&lt;/h2&gt;
+        &lt;input v-on:keypress="ekle($event)" type="text"&gt;
+        &lt;input @keypress="ekle($event)" type="text"&gt;
+        &lt;input @keypress.enter="ekle1($event)" type="text"&gt;
+        &lt;input @input="aktar($event)" type="text"&gt;
+        &lt;button v-on:keypress="ekle()"&gt;Ekle&lt;/button&gt;
+        &lt;button v-on:click="artir()"&gt;Değerleri artırmak için tıkla&lt;/button&gt;
+        &lt;button v-on:mouseover="artir()"&gt;Değerleri artırmak için üzerime gel&lt;/button&gt;
+        &lt;button v-on:click="bos()"&gt;Sabit mesaj göster&lt;/button&gt;
+        &lt;button v-on:click="bos1('Buton ile gönderilen mesaj')"&gt;İstenilen mesajı göster&lt;/button&gt;
+        &lt;p v-text="sayi"&gt;Sayi&lt;/p&gt;
+        &lt;p&gt;{{sayi}}&lt;/p&gt;
+        &lt;p&gt;{{mesaj}}&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        new Vue({
+            el : "#app",
+            data:{
+                sayi:0,
+                mesaj : "4.Kutuya bir şeyler yaz."
+            },
+            methods : {
+                artir(){
+                    this.sayi++;
+                },
+                bos(){
+                    alert("Sabit mesaj.");
+                },
+                ekle(gelen){
+                    if (gelen.keyCode == 13)    
+                    this.sayi+= parseInt(gelen.target.value);
+                },
+                ekle1(gelen){
+                    this.sayi+= parseInt(gelen.target.value);
+                },
+                bos1(pp){
+                    alert(pp);
+                },
+                aktar(gelen){
+                    this.mesaj= gelen.target.value;
+                },
+            }
+        });
+    &lt;/script&gt;
+  </pre>
+ </body>
+</html>
