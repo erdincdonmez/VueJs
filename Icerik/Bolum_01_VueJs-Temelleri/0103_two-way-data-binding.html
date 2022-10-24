@@ -8,9 +8,11 @@
     <title>03_two-way-data-binding</title>
 </head>
 <body>
+  <h1>İki yönlü veri bağlama</h1>
     <div id="app">
         <h3>{{uygulamaBasligi}}</h3>
-        <input type="text">
+        <input type="text" v-model="uygulamaBasligi">
+        <input type="text" v-model="uygulamaBasligi">
     </div>
     <script>
         new Vue({
