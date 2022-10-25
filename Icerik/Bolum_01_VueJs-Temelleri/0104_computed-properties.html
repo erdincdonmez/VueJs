@@ -10,7 +10,12 @@
 <body>
   <h1>Computed properties</h1>
   <div id="app">
-    <input type="text" v-model="yas">
+    <label for="">Yaşınız kaç:</label>
+    <input type="text" v-model="yas" v-on:keypress="yazdir($event)">
+    <!---->
+    <button v-on:click="artir()"> + </button>
+    <button v-on:click="eksilt()"> - </button>
+    
     <p>{{yas>18?"ehliyet alabilir":"alamaz"}}</p>
   </div>
   <script>
@@ -19,6 +24,11 @@
       data:{
         veri1:"Durum:",
         yas:10,
+      },
+      methods:{
+      artir(){this.yas++},
+      eksilt(){this.yas--},
+      yazdir(gelen){/*console.log(gelen+"---");*/console.log("--->"+gelen.target.value + "<---")}
       }
     });
   </script>
