@@ -11,12 +11,17 @@
   <h1>Computed properties</h1>
   <div id="app">
     <label for="">Yaşınız kaç:</label>
-    <input type="text" v-model="yas" v-on:keypress="yazdir($event)">
-    <!---->
+    <!--<input type="text" v-model="yas" v-on:keypress="yazdir($event)">-->
+    <!--<input type="text" v-on:keypress="yazdir($event)">-->
+    <input type="text" @keypress.enter="yazdir($event)" @keypress.esc="bosalt($e)">
+    
     <button v-on:click="artir()"> + </button>
-    <button v-on:click="eksilt()"> - </button>
+    <button @click="eksilt()"> - </button>
     
     <p>{{yas>18?"ehliyet alabilir":"alamaz"}}</p>
+    <p>{{yas}}</p>
+    <p :text="yas"></p>
+    
   </div>
   <script>
     new Vue({
@@ -28,7 +33,15 @@
       methods:{
       artir(){this.yas++},
       eksilt(){this.yas--},
-      yazdir(gelen){/*console.log(gelen+"---");*/console.log("--->"+gelen.target.value + "<---")}
+      yazdir(gelen){
+        /*console.log(gelen+"---");*/
+        console.log("İçerik: "+gelen.target.value + "<---");
+        console.log("Tuş   : "+gelen.keyCode + " <---\n===========================");
+        if (gelen.keyCode == 13){
+          this.yas += parseInt(gelen.target.value);
+        }
+        },
+        bosalt(g){this.yas=0;}
       }
     });
   </script>
