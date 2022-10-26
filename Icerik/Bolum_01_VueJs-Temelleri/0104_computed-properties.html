@@ -18,7 +18,12 @@
     <button v-on:click="artir()"> + </button>
     <button @click="eksilt()"> - </button>
     
-    <p>{{yas>18?"ehliyet alabilir":"alamaz"}}</p>
+    <button v-on:click="yas+=5"> +5 </button>
+    <button @click="yas-=5"> -5 </button>
+    
+    <p>JavaScript : {{yas>18?"ehliyet alabilir":"alamaz"}}</p>
+    <p>Method     : {{artir()}}</p>
+    <p>Computed   : {{yazdirComputed}}</p>
     <p>{{yas}}</p>
     <p :text="yas"></p>
     
@@ -29,19 +34,33 @@
       data:{
         veri1:"Durum:",
         yas:10,
+        durum:"---",
       },
       methods:{
-      artir(){this.yas++},
-      eksilt(){this.yas--},
-      yazdir(gelen){
-        /*console.log(gelen+"---");*/
-        console.log("İçerik: "+gelen.target.value + "<---");
-        console.log("Tuş   : "+gelen.keyCode + " <---\n===========================");
-        if (gelen.keyCode == 13){
-          this.yas += parseInt(gelen.target.value);
-        }
+        artir(){
+          this.yas++;
+          this.durum = "" 
+          return this.durum >18 ? "Ehliyet alabilir. (metodtan)" : "Ehliyet alamaz. (metodtan)";
+          console.log("artir methodu çalıştı");
         },
+        eksilt(){this.yas--},
+        yazdir(gelen){
+          /*console.log(gelen+"---");*/
+          console.log("İçerik: "+gelen.target.value + "<---");
+          console.log("Yazdır gelen methodu çalıştı");
+          console.log("Tuş   : "+gelen.keyCode + " <---\n===========================");
+          if (gelen.keyCode == 13){
+            this.yas += parseInt(gelen.target.value);
+          }
+          },
         bosalt(g){this.yas=0;}
+      },
+      computed:{
+        yazdirComputed(){
+          return this.durum > 18 ? "Ehliyet alabilir (computed)" : "Ehliyet alamaz(computed)";
+          console.log("yazdir computed çalıştı");
+          
+        }
       }
     });
   </script>
