@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <title>vue reactive properties</title>
+</head>
+<body>
+  <div id="app">
+    <input type="text" v-model="yas">
+    <p>JavaScript : {{yas>18?"ehliyet alabilir":"alamaz"}}</p>
+    <p>Method     : {{yasYaz()}}</p>
+    <p>Computed   : {{yasYazComputed}}</p>
+    <p>{{yas}}</p>
+  </div>
+  <script>
+    new Vue({
+      el:"#app",
+      data:{
+        yas:10,
+        durum:"---",
+      },
+      methods:{
+        yasYaz(){
+          return this.durum >18 ? "Ehliyet alabilir. (metodtan)" : "Ehliyet alamaz. (metodtan)";
+          console.log("yasYaz methodu çalıştı");
+        },
+        
+      },
+      computed:{
+        yasYazComputed(){
+          return this.durum > 18 ? "Ehliyet alabilir (computed)" : "Ehliyet alamaz(computed)";
+          console.log("yasYaz computed çalıştı");
+        }
+          
+    }, 
+      watch:{
+        yas(yeniDeger,eskiDeger){
+          console.log("   Eski deger:",eskiDeger);
+          console.log("   Yeni deger:",yeniDeger);
+          console.log(">=======================");
+        }
+      }   
+    });
+  </script>
+  </script>
+</body>
+</html>

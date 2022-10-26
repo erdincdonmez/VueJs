@@ -13,7 +13,7 @@
     <label for="">Yaşınız kaç:</label>
     <!--<input type="text" v-model="yas" v-on:keypress="yazdir($event)">-->
     <!--<input type="text" v-on:keypress="yazdir($event)">-->
-    <input type="text" @keypress.enter="yazdir($event)" @keypress.esc="bosalt($e)">
+    <input type="text" v-model="yas" @keypress.enter="yazdir($event)" @keypress.esc="bosalt($e)">
     
     <button v-on:click="artir()"> + </button>
     <button @click="eksilt()"> - </button>
