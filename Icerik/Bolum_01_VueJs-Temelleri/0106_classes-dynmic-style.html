@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dinamik stil sınıfları</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+  <style>
+    .kutu{
+      background: gray;
+    }
+  </style>
+  <div id="app">
+    <h1>{{Baslik}}</h1>
+    <div class="kutu">
+      
+    </div>
+  </div>
+  <script>
+    new Vue({
+      el : "#app",
+      data :{
+        Baslik : "Dinamik stil sayfaları",
+        
+      }
+    });
+  </script>
+</body>
+</html>
