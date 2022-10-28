@@ -1,20 +1,53 @@
-h1{
-  color:red;
-  border-left: 5px solid red;
-  padding-left:5px;
-  
+html, body{
+  margin:0px;
+  background-color:whitesmoke;
 }
+.sagdaBaslik{
+  color:white;
+  border-right: 15px solid mediumvioletred;
+  border-bottom: solid 1px black;
+  padding:3px 10px;
+  background: violet;
+  opacity: 0.5;
+  position: fixed;
+  right:0px;
+  top:0px;
+  box-shadow:10px 10px 10px #eaa9d2;
+
+}
+
+.sagdaBaslik:hover{
+  color:black;
+  box-shadow:10px 10px 10px mediumvioletred;
+}
+
 h2{
-  color:blue;
-  border-left1: 5px solid blue;
-  margin-left:10px;
-  padding-left1:5px;
+  color:white;
+  background-color: blue;
+  margin-left:0px;
+  padding:3px 10px;
+  width:50%;
+  border-bottom: solid 1px black;
+  box-shadow: 10px 10px 10px lightblue;
+  border-top-right-radius:10px;
 }
+
+h2:hover{
+  color:yellow;
+  box-shadow: 10px 10px 10px #9cbec9;
+}
+
 a{
   border-left1: 1px solid black;
-  margin-left:25px;
-  padding-left1:5px;
+  margin:10px 0px 10px 25px;
+  margin-top:10px;
 }
+
+a:hover{
+  background-color:yellow;
+  box-shadow: 0px 0px 10px yellow;
+}
+
 div{
   border-left: 3px solid blue;
   margin-left:15px;

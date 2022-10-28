@@ -4,30 +4,59 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dinamik stil sınıfları</title>
+  <title>Dinamik olarak stilleri değiştirme</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-
-</head>
-<body>
   <style>
     .kutu{
-      background: gray;
+      margin:10px;
+      background-color: red;
+      width: 333px;
+      height:111px;
+      text-align: center;
+      vertical-align: middle;
+      font-size:22px;
+    }
+    .yanik{
+      background-color: orangered;
+      box-shadow : 5px 10px 10px red;
+      
+    }
+
+    kutu:hover{
+      background-color: orangered;
+      box-shadow : 5px 10px 10px red;
+    }
+    
+    .buton1{
+      margin:10px;
+      width: 333px;
+      height:33px;
+      font-size:22px;
     }
   </style>
+</head>
+<body>
+
   <div id="app">
     <h1>{{Baslik}}</h1>
-    <div class="kutu">
-      
+    <div class="kutu" :class="className">
+      Kutu-1
     </div>
+    <div class="kutu" :class="{'yanik' : !durum}">
+      Kutu-2
+    </div>
+    <button class="buton1" @click="durum = !durum"> {{durum? "Yak":"Söndür"}}</button>
   </div>
   <script>
     new Vue({
       el : "#app",
       data :{
         Baslik : "Dinamik stil sayfaları",
-        
+        className : "kutu",
+        durum : true,
       }
     });
   </script>
+  <h3>Sayfa kodlarını görmek için, sayfa üzerindeki boş bir alanda sağ tıklayıp, sayfa kaynağını göster diyebilirsiniz.</h3>
 </body>
 </html>
