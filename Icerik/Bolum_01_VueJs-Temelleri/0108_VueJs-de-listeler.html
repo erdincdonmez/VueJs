@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <title>Listeler</title>
+</head>
+<body>
+  <div id="app">
+    <h1>{{sayfaBasligi}}</h1>
+    <h2>Ders listesi</h2>
+    <ol>
+      <li v-for="ders in dersler">{{ders}}</li>
+    </ol>
+
+    <h2>Sayı listesi</h2>
+    <ul>
+      <li v-for="i in 10">{{i}}</li>
+    </ul>
+
+    <h2>Ogrenci bilgisi</h2>
+    <div v-for="(value, key) in ogrenci">
+      <strong>{{ key + " : " }}</strong><span>{{ value }}</span>
+    </div>
+
+    <h2>Ogretmen listesi (obje türünde)</h2>
+    <div v-for="ogretmen in ogretmenler">{{ogretmen}}</div>
+
+    <h2>Ogretmen listesi </h2>
+    <ul>
+      <li v-for="ogretmen in ogretmenler">
+        <span>Öğretmen adı: {{ogretmen.adi}} (Kullancı adı:{{ogretmen.kullaniciAdi}}), Ders saati sayısı: {{ogretmen.dersSaati}} </span>
+        <button @click="ogretmen.dersSaati+=miktar">+</button> <input type="text" v-model="miktar">
+        <button @click="ogretmen.dersSaati-=miktar">-</button>
+      </li>
+    </ul>
+        
+    <h2>Derse giren ogretmen listesi </h2>
+    <div v-for="dgo in ogretmenler" v-if="dgo.dersSaati > 0">Öğretmen adı: {{dgo.adi}} (Kullancı adı:{{dgo.kullaniciAdi}}), Ders saati sayısı: {{dgo.dersSaati}} </div>
+  </div>
+    
+
+  <script>
+    new Vue({
+      el : "#app",
+      data : {
+        sayfaBasligi : "VueJs Listeler",
+        miktar : 1,
+        dersler : ["Türkçe","Matematik","Fen"],
+        ogrenci : {
+          adi : "Ensar",
+          kullaniciAdi : "ensar06",
+          sinifi : 6
+        },
+        ogretmenler : [
+          {
+            adi : "Erdinç",
+            kullaniciAdi : "erdinc1",
+            bransi : "Bilişim",
+            dersSaati : 0
+          },
+          {
+            adi : "Ensar",
+            kullaniciAdi : "ensoş2",
+            bransi : "Matematik",
+            dersSaati : 32
+          },
+          {
+            adi : "Erhan",
+            kullaniciAdi : "erhos6",
+            bransi : "Fizik",
+            dersSaati : 44
+          }
+        ]
+      }
+    });
+  </script>
+  <br><hr>
+  <h3 style="color:red">Sayfa kodlarını görmek için, sayfa üzerindeki boş bir alanda sağ tıklayıp, sayfa kaynağını göster diyebilirsiniz.</h3>
+</body>
+</html>

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>0107_VueJs-de-sartlar</title>
+  <title>Koşullar</title>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
@@ -13,9 +13,19 @@
     <p>
       Standart özellikler
     </p>
-    <button @click="!durum">{{buton1Metni}}</button>
-    <p v-if="durum = !durum">
-      Gelişmiş özellikler
+    <label for="">Yaşınız:</label><input v-model="yas" type="text">
+    <button @click="durum = !durum">{{durum?"Gelişmiş özellikleri gizle":"Gelişmiş özellikleri göster"}}</button>
+    <p v-if="durum && yas>17">
+      Gelişmiş özellikler <br>
+      <button>Buton1</button> 
+      <button>Buton2</button>
+    </p>
+    <p v-else-if="durum && yas<18">
+      Gelişmiş özellikler görünmüyor. <br> Buradaki özellikler 18 yaş ve üzerinde görünür.
+    </p>
+    <p v-else="durum">
+      Gelişmiş özellikler görünmüyor... <br>
+      "Gelişmiş özellikleri göster" düğmesine basınız.
     </p>
   </div>
   <script>
@@ -25,9 +35,12 @@
           sayfaBasligi : "Koşullu ifadeler",
           buton1Metni : "Göster",
           durum : false,
+          yas : 19,
           
         }
     });
   </script>
+  <hr>
+  <h3>Sayfa kodlarını görmek için, sayfa üzerindeki boş bir alanda sağ tıklayıp, sayfa kaynağını göster diyebilirsiniz.</h3>
 </body>
 </html>
