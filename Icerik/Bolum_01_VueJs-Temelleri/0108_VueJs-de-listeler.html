@@ -8,6 +8,25 @@
   <title>Listeler</title>
 </head>
 <body>
+  <style>
+    ul{
+      margin-top : 5px;
+      width : 500px;
+      list-style-type : none;
+    }
+    li{
+      margin-bottom : 5px;
+      width : 450px;
+      list-style-type : none;
+      padding : 5px;
+    }
+    .aktif{
+      background-color: limegreen;
+    }
+    .pasif{
+      background-color: tomato;
+    }
+  </style>
   <div id="app">
     <h1>{{sayfaBasligi}}</h1>
     <h2>Ders listesi</h2>
@@ -15,9 +34,9 @@
       <li v-for="ders in dersler">{{ders}}</li>
     </ol>
 
-    <h2>Sayı listesi</h2>
+    <h2>Eğitim verilen sınıf seviyeleri (Sayı listesi)</h2>
     <ul>
-      <li v-for="i in 10">{{i}}</li>
+      <li v-for="i in 12">{{i}}</li>
     </ul>
 
     <h2>Ogrenci bilgisi</h2>
@@ -30,10 +49,11 @@
 
     <h2>Ogretmen listesi </h2>
     <ul>
-      <li v-for="ogretmen in ogretmenler">
-        <span>Öğretmen adı: {{ogretmen.adi}} (Kullancı adı:{{ogretmen.kullaniciAdi}}), Ders saati sayısı: {{ogretmen.dersSaati}} </span>
+      <li v-for="ogretmen in ogretmenler" :class="ogretmenDersDurumu(ogretmen)">
+        <span>Öğretmen adı: {{ogretmen.adi}} (Kullancı adı:{{ogretmen.kullaniciAdi}}), Ders saati sayısı: {{ogretmen.dersSaati}} </span> <br>
+        <button @click="dersEkle(ogretmen)">Ekle</button>
         <button @click="ogretmen.dersSaati+=miktar">+</button> <input type="text" v-model="miktar">
-        <button @click="ogretmen.dersSaati-=miktar">-</button>
+        <button :disabled="ogretmen.dersSaati < 1" @click="ogretmen.dersSaati-=miktar">-</button>
       </li>
     </ul>
         
@@ -65,16 +85,24 @@
             adi : "Ensar",
             kullaniciAdi : "ensoş2",
             bransi : "Matematik",
-            dersSaati : 32
+            dersSaati : 3
           },
           {
             adi : "Erhan",
             kullaniciAdi : "erhos6",
             bransi : "Fizik",
-            dersSaati : 44
+            dersSaati : 4
           }
         ]
+      },
+    methods : {
+      dersEkle(ogretmen){
+        ogretmen.dersSaati += this.miktar;
+      },
+      ogretmenDersDurumu(ogretmen){
+        return {'aktif': ogretmen.dersSaati > 0,'pasif': ogretmen.dersSaati < 1}
       }
+    }
     });
   </script>
   <br><hr>
