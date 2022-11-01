@@ -54,9 +54,10 @@
         <button @click="dersEkle(ogretmen)">Ekle</button>
         <button @click="ogretmen.dersSaati+=miktar">+</button> <input type="text" v-model="miktar">
         <button :disabled="ogretmen.dersSaati < 1" @click="ogretmen.dersSaati-=miktar">-</button>
+        <button :disabled="ogretmen.dersSaati < 1" @click="dersCikar(ogretmen)">Çıkar</button>
       </li>
     </ul>
-        
+    <p v-if="mesajDurumu" style="color:red; font-weight:bold;">Öğremenden bu kadar ders çıkartamazsınız.</p>
     <h2>Derse giren ogretmen listesi </h2>
     <div v-for="dgo in ogretmenler" v-if="dgo.dersSaati > 0">Öğretmen adı: {{dgo.adi}} (Kullancı adı:{{dgo.kullaniciAdi}}), Ders saati sayısı: {{dgo.dersSaati}} </div>
   </div>
@@ -67,7 +68,8 @@
       el : "#app",
       data : {
         sayfaBasligi : "VueJs Listeler",
-        miktar : 1,
+        miktar : 3,
+        mesajDurumu : false,
         dersler : ["Türkçe","Matematik","Fen"],
         ogrenci : {
           adi : "Ensar",
@@ -97,7 +99,24 @@
       },
     methods : {
       dersEkle(ogretmen){
-        ogretmen.dersSaati += this.miktar;
+        if (this.miktar > ogretmen.dersSaati){
+          this.mesajDurumu = true
+        }
+        else{
+          ogretmen.dersSaati += this.miktar;
+          this.mesajDurumu = false
+          
+        }
+      },
+      dersCikar(ogretmen){
+        if (this.miktar > ogretmen.dersSaati){
+          //alert('olmaz')
+          this.mesajDurumu = true
+        }
+        else{
+          ogretmen.dersSaati -= this.miktar;
+          this.mesajDurumu = false
+        }
       },
       ogretmenDersDurumu(ogretmen){
         return {'aktif': ogretmen.dersSaati > 0,'pasif': ogretmen.dersSaati < 1}
