@@ -1,14 +1,14 @@
 <template>
     <div class="product">
-        <strong>Ürün Adı:</strong>
-        <p>Açıklaması</p>
-        <strong>Ürün fiyatı : 200TL | Adet : 12,3</strong>
+        <strong>Ürün Adı: {{urun.adi}}</strong>
+        <p>Açıklaması {{urun.aciklama}}</p>
+        <strong>Ürün fiyatı : {{urun.fiyati}}TL | Adet : {{urun.stok}}</strong>
     </div>
 </template>
 
 <script>
 export default{
-
+    props : ["urun"],
 }
 </script>
 
