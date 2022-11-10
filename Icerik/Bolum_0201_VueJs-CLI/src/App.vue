@@ -1,8 +1,14 @@
 <template>
   <div id="app" class="container">
     <myComp/>
-    <myComp/>
-    <Product :urun="urun" v-for="urun in urunListesi" :key="urun.id"/>
+    <div class="card1">
+      <br>
+      <h3>Sepet</h3>
+      <ul>
+        <li v-for="item in cardItems" :key="item.id">{{item.adi}}</li>
+      </ul>
+    </div>
+    <Product @addToCart="cardItems.push($event)" :urun="urun" v-for="urun in urunListesi" :key="urun.id"/>
     <!--// :urun="urun" yöntemiyle root'tan childa veri transferi ile gönderilen prop ile alınacak veri-->
     <!--<Product/>
     <Product/>
@@ -44,7 +50,9 @@ export default{
             stok : 4,
             aciklama : "Açıklama-3"
           }
-        ]
+        ],
+        //cardItems:["MacBook","Klavye","Notebook"]
+        cardItems:[]
     }
   }
 
