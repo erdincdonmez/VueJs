@@ -6,7 +6,7 @@
       <h3>Sepet</h3>
       <ul>
         <li v-for="item in cardItems" :key="item.id">{{item.adi}}</li>
-        <p f-if="item.count==0"></p>
+        <p v-if="cardItems.length==0">Bir şeyler satın al ülenn.</p>
       </ul>
     </div>
     <Product @addToCart="cardItems.push($event)" :urun="urun" v-for="urun in urunListesi" :key="urun.id"/>
