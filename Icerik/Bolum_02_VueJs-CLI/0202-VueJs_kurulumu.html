@@ -32,7 +32,7 @@
         <p>VueJs CLI ile çalışmaya başlamak için önce sisteminize kurmanız gerekmektedir.</p>
         <p>
             <ol>
-                Kurulum için
+                <h3>Kurulum için</h3>
                 <li>VueJs CLI'yi bilgisayara kurmak için npm (node package manager) kullanıyoruz.</li>
                 <li>nmp nodejs ile çalıştığı için bilgisayarınızda node.js kurulu olması gerekir</li>
                 <li>nodejs kurulu olup olmadığını anlamak için vscode üzerindeki terminal ekranından veya cmd penceresinden <code>node -v</code> komutu vermeniz yeterlidir. </li>
@@ -44,6 +44,8 @@
                 <li>herhangi bir sıkıntı yok ise <code> npm install vue@next</code> ile vue@next kurulumunu yapın</li>
                 <li><code>npm install -g @vue/cli</code> komutu ile vue/cli yükleyin</li>
                 <li><code>vue create my-new-app</code> ile uygulamamızı oluşturuyoruz.</li>
+                <li><code>vue create my-new-app</code> ile uygulamamızı oluşturken <b style="color:brown">...AppData\Roaming\npm\vue.ps1 cannot be loaded because running scripts is disabled on this system</b> hatası alırsanız power shell'de aşağıdaki komutu çalıştırabilirsiniz.</li>
+                <li><code>Set-ExecutionPolicy RemoteSigned</code> bu komut ile ilgili detaya <a href="https://www.tasarimkodlama.com/web-tasarimi/vue-js/cozum-appdataroamingnpmvue-ps1-cannot-be-loaded-because-running-scripts-is-disabled-on-this-system/">bu linkten</a> ulaşabilirsiniz.</li>
                 <li>Proje içerisine girip:</li>
                 <li><code>vue upgrade - next</code> komutunu çalıştırıyoruz.</li>
                 <li><code>npm run dev</code> komutu ile projemizi çalıştırıyoruz.</li>
