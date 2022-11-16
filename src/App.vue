@@ -15,12 +15,11 @@
         <hr>
         <div class="todo-container">
           <div class="row">
-            <!-- <div v-for="list in todoList" :todo="todo" :key="list.id" class="p-2 col-md-6 offset-md-3 border d-flex justify-content-between align-items-center"> -->
-              <todo v-for="list in todoList" :key="list.id" @deleteTodo="deleteTodo($event)"/> 
+            <div class="p-2 col-md-6 offset-md-3 border d-flex justify-content-between align-items-center" v-for="list in todoList" :todo="todo" :key="list.id">
+              <!-- <todo/>  -->
               <span>{{list.text}}</span> 
-              <!-- <span>{{list.text}}</span>  -->
-              <button @click="deleteTodo(list)" class="btn btn-danger">Sil</button>
-            <!-- </div>     -->
+              <button class="btn btn-danger">Sil</button>
+            </div>    
           </div>
         </div>
       </div>
@@ -31,12 +30,12 @@
 
 <script>
 //import HelloWorld from './components/HelloWorld.vue'
-import todo from "./components/todo-list"
+// import todo from "./components/todo-list"
 import axios from "axios"
 //import { response } from "express"
 export default {
 components : {
-     todo
+    //  todo
   },
   data(){
     return{
@@ -45,9 +44,7 @@ components : {
     }
   },
   methods:{
-    deleteTodo(todo){
-      alert(todo.key)
-    },
+
     addTodo(){
       //alert(this.todoText);
       axios.post("https://erdincdonmez-vuejs-default-rtdb.firebaseio.com/todolist.json",{text : this.todoText})
@@ -62,8 +59,7 @@ components : {
     fetchData(){
         axios.get("https://erdincdonmez-vuejs-default-rtdb.firebaseio.com/todolist.json")
         .then(response=>{
-          // this.todoList= Object.values(response.data);
-          this.todoList= Object(response);
+          this.todoList= Object.values(response.data);
           console.log(this.todoList)
         })
         .catch()
@@ -73,20 +69,14 @@ components : {
   created(){
         axios.get("https://erdincdonmez-vuejs-default-rtdb.firebaseio.com/todolist.json")
         .then(response=>{
-          // this.todoList= Object.values(response.data);
-          this.todoList= response.data;
+          this.todoList= Object.values(response.data);
 
           console.log(this.todoList)
-          for(let key in response.data){
-            // console.log(response.data[key])
-             console.log(response.data[key])
-             this.todoList.push(response.data[key])
-             let todo = {
-              text: response.data[key].text,
-              id: key
-             }
-             this.todoList.push(todo)
-          }
+          // for(let key in response.data){
+          //   // console.log(response.data[key])
+          //    console.log(response.data[key])
+          //    this.todoList.push(response.data[key])
+          // }
         })
         .catch()
     }
