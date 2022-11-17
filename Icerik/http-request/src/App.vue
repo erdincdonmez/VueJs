@@ -16,7 +16,8 @@
         <div class="todo-container">
           <div class="row">
             <!-- <div v-for="list in todoList" :todo="todo" :key="list.id" class="p-2 col-md-6 offset-md-3 border d-flex justify-content-between align-items-center"> -->
-              <todo v-for="list in todoList" :key="list.id" @deleteTodo="deleteTodo($event)"/> 
+              <!-- <todo v-for="list in todoList" :key="list.id" @deleteTodo="deleteTodo($event)"/>  -->
+              <!-- <todo/>  -->
               <span>{{list.text}}</span> 
               <!-- <span>{{list.text}}</span>  -->
               <button @click="deleteTodo(list)" class="btn btn-danger">Sil</button>
@@ -31,12 +32,12 @@
 
 <script>
 //import HelloWorld from './components/HelloWorld.vue'
-import todo from "./components/todo-list"
+// import todo from "./components/todo-list"
 import axios from "axios"
 //import { response } from "express"
 export default {
 components : {
-     todo
+    //  todo
   },
   data(){
     return{
@@ -70,7 +71,7 @@ components : {
     }
 
   },
-  created(){
+  created1(){
         axios.get("https://erdincdonmez-vuejs-default-rtdb.firebaseio.com/todolist.json")
         .then(response=>{
           // this.todoList= Object.values(response.data);
