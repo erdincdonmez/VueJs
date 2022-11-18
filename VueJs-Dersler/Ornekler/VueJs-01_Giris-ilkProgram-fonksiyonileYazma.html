@@ -1,0 +1,19 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<div id="app">
+  <h2>{{baslikDegistir()}}</h2> <!-- this.baslikDegistir() şeklinde de yazabiliriz-->
+  <h3>{{baslikMetni}}</h3> <!-- this.baslikMetni şeklinde de yazabiliriz. -->
+</div>
+<script>
+	new Vue({
+  	el : "#app",
+    data : {
+    	baslikMetni : "Başlık",
+    },
+    methods : {
+    	baslikDegistir : function(){
+        this.baslikMetni = "Yeni başlık";
+      	return "string interplusion içine fonksiyon ile veri aldık";
+      }
+    }
+  })
+</script>

@@ -1,0 +1,24 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+  <h2 v-once>{{siteAdi}}</h2> <!-- v-once ile veriyi bir kere alsın, bir daha değiştirmesin diyebiliyoruz. -->
+  <h2>
+    <a v-bind:href="baglanti">{{yerlestir()}}</a>
+  </h2>
+</div>
+
+<script>
+	new Vue({
+  	el : "#app",
+    data : {
+    	siteAdi : "atirad.com.tr",
+      baglanti : "https://atirad.com.tr/"
+    },
+    methods : {
+    	yerlestir : function(){
+      	this.siteAdi = " atirad.com.tr sitesi"
+        return this.siteAdi;
+      }
+    }
+  })
+</script>
