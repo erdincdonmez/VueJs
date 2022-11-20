@@ -1,0 +1,32 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+  <p v-on:mousemove="degistir" v-on:click="tiklanma(2,$event)">Fare koordinatları: X:{{x}} , Y:{{y}}
+  <span v-on:mousemove.stop>Bu yazının üzerinde <b v-on:mousemove="degistir">v-on:mousemove.stop</b> modifierı sayesinde mouse move çalışmaz.</span>
+  Bunun üzerinde ise çalışır.
+  <br>
+  modifier bir elementin kendi davranış özelliklerini değiştiren yapıdır.
+  </p>
+</div>
+
+<script>
+	new Vue({
+  	el: "#app",
+    data : {
+    	x : 20,
+      y : 10
+    },
+    methods : {
+    	degistir : function(gelenVeri){
+      	this.x = gelenVeri.clientX;
+       	this.y = gelenVeri.clientY;
+      },
+      tiklanma : function(gelen, olay){
+      	alert(gelen +" : "+ olay);
+      }      
+    }
+  })
+</script>
+
+
+ 

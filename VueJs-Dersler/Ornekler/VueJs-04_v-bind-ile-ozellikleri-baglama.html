@@ -1,0 +1,15 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<div id="app">
+  <h2>
+    <a v-bind:href="baglanti">{{baglantiMetni}}</a>
+  </h2> 
+</div>
+<script>
+	new Vue({
+  	el : "#app",
+    data : {
+    	baglantiMetni : "Siteye git",
+      baglanti : "https://atirad.com.tr/"
+    }
+  })
+</script>

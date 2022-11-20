@@ -1,0 +1,15 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+  <p v-html="htmlKodu"></p> <!-- v-html ile HTML kodunu işler bir şekilde yazdırabiliyoruz. -->
+  <p>{{htmlKodu}}</p> <!-- v-html olmadan yapamıyoruz. -->
+</div>
+
+<script>
+	new Vue({
+  	el : "#app",
+    data : {
+    	htmlKodu : "<a href='https://atirad.com.tr/'>siteye git</a>"
+    }
+  })
+</script>
