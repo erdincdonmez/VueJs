@@ -1,0 +1,43 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+  <button v-on:click="deger++">Artır</button>
+  <button v-on:click="deger--">Eksilt</button>  
+  <button v-on:click="deger2++">2.yi Artır</button>
+  <h2>Değer: {{deger}}</h2>
+</div>
+
+<script>
+	new Vue({
+  	el : "#app",
+    data : {
+    	deger : "5",
+      deger2 : 0,
+    },
+    methods : {
+      durum : function (){
+      	console.log("durum isimli fonksiyon çalıştı.");
+        return this.deger > 10 ? "10'dan büyük" : "10'dan küçük";
+      }
+    },
+    computed : {
+    	hesaplananDeger : function (){
+        console.log("Computed property çalıştı.")
+        return this.deger > 10 ? "10'dan büyük" : "10'dan küçük";
+			}
+    },
+    watch : {
+    	deger : function (gelenVeri){
+      	yeniThis = this;
+        setTimeout(function(){
+           yeniThis.deger = 0;
+          },1000) 
+        }
+      }
+    // watch ile asencron bir şeyler çalıştırabiliriz.
+    // asenkron yapılarda normal işlem/akış icra ederken arka planda asenkron yapı çalışır. Zamanı gelince onun sonucu görünür.
+  })
+</script>
+
+
+ 

@@ -1,0 +1,22 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+  <button @click="durum=!durum">Göster/Gizle (paragraf-3)</button>
+  <button @click="durum1=!durum1">Göster/Gizle (paragraf-4 ve 5)</button>
+  <div v-if="true">paragraf-1</div> 
+  <div v-if="false">paragraf-2</div> 
+  <div v-if="durum">paragraf-3</div> 
+  <div v-if="durum1">paragraf-4</div> 
+  <div v-if="!durum1">paragraf-5</div> 
+</div>
+<script>
+	new Vue({
+  el : '#app',
+  data : {
+  	durum : true,
+    durum1 : true
+  } 
+});
+
+</script>
+

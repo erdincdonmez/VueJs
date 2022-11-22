@@ -1,0 +1,33 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+  <div class="box"></div>
+  <div :class="sinif" class="box"></div>
+  <div class="box"></div>
+</div>
+
+<script>
+	new Vue({
+		el : "#app",
+	  data : {
+		sinif : "yellow"
+	  }
+	})
+</script>
+
+<style>
+	.box{
+	  height : 100px;
+	  width : 100px;
+	  background-color : gray;
+	  margin : 5px;
+	  display : inline-block;
+	}
+	.yellow{
+	  height : 100px;
+	  width : 100px;
+	  margin : 5px;
+	  display : inline-block;
+	  background-color : yellow;
+	}
+</style>

@@ -1,0 +1,17 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+     <p v-if="sayi < 10">Sayı 10dan küçüktür</p>
+    <p v-else-if="sayi > 10">Sayı 10dan büyüktür</p>
+  <p v-else>Sayı 10a eşittir</p>
+</div>
+<script>
+	new Vue({
+  el : '#app',
+  data : {
+    sayi : 11
+  } 
+});
+
+</script>
+

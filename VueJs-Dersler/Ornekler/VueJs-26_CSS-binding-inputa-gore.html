@@ -1,0 +1,48 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+  <div @click="durum = !durum" class="box"></div>
+  <div :class="{sari : durum}" class="box"></div>
+  <div :class="sinifSec" class="box"></div>
+  <div class="box" :class="renk"></div>
+  <div class="box" :class="renk1"></div>
+  <input autofocus type="text" v-model="renk1">
+</div>
+
+<script>
+	new Vue({
+		el : "#app",
+	  data : {
+			durum : true,
+      renk : "yesil",
+      renk1 : "5.kuru için bir renk yazınız."
+	  },
+    computed : {
+    	sinifSec : function(){
+      	return {
+        	sari : this.durum,
+          mavi : !this.durum
+        }
+      }
+    }
+	})
+</script>
+
+<style>
+	.box{
+	  height : 100px;
+	  width : 100px;
+	  background-color : gray;
+	  margin : 5px;
+	  display : inline-block;
+	}
+	.sari{
+	  background-color : yellow;
+	}
+	.mavi{
+	  background-color : blue;
+	}
+	.yesil{
+	  background-color : green;
+	}
+</style>

@@ -1,0 +1,44 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+  <button v-on:click="deger++">Artır</button>
+  <button v-on:click="deger--">Eksilt</button>  
+  <button v-on:click="deger2++">2.yi Artır</button>
+
+  <h2>Değer: {{deger}}</h2>
+  <h2>Durum: {{durum()}}</h2>
+  <h2>Değer-2: {{deger2}}</h2>  
+  <h2>Değer-3: {{deger3}}</h2>
+  <h2>hesaplananDeğer: {{hesaplananDeger}}</h2>
+
+</div>
+
+<script>
+	new Vue({
+  	el : "#app",
+    data : {
+    	deger : "5",
+      deger2 : 0,
+      deger3 : 0
+    },
+    methods : {
+      durum : function (){
+      	console.log("durum isimli fonksiyon çalıştı.");
+        return this.deger > 10 ? "10'dan büyük" : "10'dan küçük";
+        
+      }
+    },
+    computed : {
+    	hesaplananDeger : function (){
+			console.log("Computed property çalıştı.")
+			return this.deger > 10 ? "10'dan büyük" : "10'dan küçük";
+			// deger isimli data'da herhangi bir değişiklik olduğu durumlarda çalışır.
+			// normal method olarak tanımlansa idi herhangi bir veri değiştiğinde burası da çalışacaktı.
+			// uygulama maliyet ve performans açısından method yerine computed tercih edilmeli.
+		}
+    }
+  })
+</script>
+
+
+ 

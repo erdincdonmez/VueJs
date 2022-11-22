@@ -1,0 +1,48 @@
+<<<<<<< HEAD
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<div id="app">
+  <h1>{{yazi}}</h1>
+  <p>{{aciklama}}</p>  <!-- iki süslü paranteze string interplusion olarak adlandırılıyor.  -->
+  <hr>
+  <input type="text" v-on:input="degerDegistir" > <!-- Burada yazılan eventleri yakalayan şeylere directive deniyor. -->
+</div>
+
+<script>
+  new Vue({
+    el : "#app", // burada css seçicileri gibi seçicileri kullanıyouruz.
+    // çift tırnağı unutma.
+    data : { // obje şeklinde 
+      yazi : "... uygulaması", // data içindekiler key-value şeklinde yapılıyor.
+      aciklama : "Bu uygulama ..."
+    },
+    methods : {
+    	degerDegistir(event){
+      	this.aciklama = event.target.value;
+      }
+    }
+  });
+=======
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<div id="app">
+  <h1>{{yazi}}</h1>
+  <p>{{aciklama}}</p>  <!-- iki süslü paranteze string interplusion olarak adlandırılıyor.  -->
+  <hr>
+  <input type="text" v-on:input="degerDegistir" > <!-- Burada yazılan eventleri yakalayan şeylere directive deniyor. -->
+</div>
+
+<script>
+  new Vue({
+    el : "#app", // burada css seçicileri gibi seçicileri kullanıyouruz.
+    // çift tırnağı unutma.
+    data : { // obje şeklinde 
+      yazi : "... uygulaması", // data içindekiler key-value şeklinde yapılıyor.
+      aciklama : "Bu uygulama ..."
+    },
+    methods : {
+    	degerDegistir(event){
+      	this.aciklama = event.target.value;
+      }
+    }
+  });
+>>>>>>> 5bef3f46ccc74ad7c51ff956640b89abb2279729
+</script>

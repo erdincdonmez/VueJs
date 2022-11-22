@@ -1,0 +1,25 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+  <h2>v-model ile iki yönlü veri bağlama</h2>
+  <input :class="veri" type="text" v-model="veri">
+  <h3>{{veri}}</h3>
+</div>
+
+<script>
+	new Vue({
+  	el : "#app",
+    data : {
+    	veri : "deneme"
+    },
+  })
+</script>
+
+<style>
+  .deneme{
+    background-color : yellow;
+  }
+  .deneme1{
+    background-color : red;
+  }
+</style>
