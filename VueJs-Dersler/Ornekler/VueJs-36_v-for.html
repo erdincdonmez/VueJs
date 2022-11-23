@@ -1,0 +1,17 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+  <ul>
+    <li v-for="urun in urunler">{{urun}}</li>
+  </ul>
+</div>
+<script>
+	new Vue({
+  el : '#app',
+  data : {
+    urunler : ["Monitör","Klavye","Fare","Hoparlör"]
+  } 
+});
+
+</script>
+

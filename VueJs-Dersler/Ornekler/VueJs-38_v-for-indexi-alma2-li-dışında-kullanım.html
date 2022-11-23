@@ -1,0 +1,18 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+  <div v-for="(urun, yer) in urunler">
+    <h3>Ürün adı : {{urun}}</h3>
+    <p>İndeksi : {{yer}}</p>
+  </div>
+</div>
+<script>
+	new Vue({
+  el : '#app',
+  data : {
+    urunler : ["Monitör","Klavye","Fare","Hoparlör"]
+  } 
+});
+
+</script>
+

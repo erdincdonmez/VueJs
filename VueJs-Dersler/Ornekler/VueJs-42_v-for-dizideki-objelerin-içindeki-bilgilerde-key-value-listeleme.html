@@ -1,0 +1,26 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+  Personel listesini datadaki obje dizisinden alıyoruz.
+  <ul>
+    <li v-for="(eleman, yer) in personel">
+      <ul  >
+        <li v-for="(degeri, alanAdi) in eleman">Alanın Adı : {{alanAdi}} | değeri : {{degeri}}</li>  
+      </ul>
+    </li>
+  </ul>
+</div>
+<script>
+	new Vue({
+    el : '#app',
+    data : {
+      personel : [
+        {adi : "Erdinç", eposta : "erdinc@atirad.com.tr"},
+        {adi : "Ahmet", eposta : "ahmet@atirad.com.tr"},
+        {adi : "Ömer", eposta : "omer@atirad.com.tr"},
+        {adi : "Enses", eposta : "enes@atirad.com.tr"}
+      ]
+    } 
+	});
+</script>
+

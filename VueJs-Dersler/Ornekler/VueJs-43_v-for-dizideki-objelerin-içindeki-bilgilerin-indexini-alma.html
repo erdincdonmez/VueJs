@@ -1,0 +1,26 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+  Personel listesini datadaki obje dizisinden bilgilerin indexini alıyoruz.
+  <ul>
+    <li v-for="(eleman, yer) in personel">
+      <ul  >
+        <li v-for="(degeri, alanAdi, sirasi) in eleman"> <strong> Alanın Adı : {{alanAdi}}</strong> | değeri : {{degeri}} | indeksi : {{sirasi}}</li>  
+      </ul>
+    </li>
+  </ul>
+</div>
+<script>
+	new Vue({
+    el : '#app',
+    data : {
+      personel : [
+        {adi : "Erdinç", eposta : "erdinc@atirad.com.tr"},
+        {adi : "Ahmet", eposta : "ahmet@atirad.com.tr"},
+        {adi : "Ömer", eposta : "omer@atirad.com.tr"},
+        {adi : "Enses", eposta : "enes@atirad.com.tr"}
+      ]
+    } 
+	});
+</script>
+

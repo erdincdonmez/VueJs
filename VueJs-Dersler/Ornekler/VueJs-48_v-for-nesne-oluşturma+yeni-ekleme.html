@@ -1,0 +1,23 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+  Listeye ürün ekleme.
+  <button @click="urunler.push('Urun')">Listeye ürün ekle</button>
+  <ul v-for="i in urunler">
+    <li :id="idOlustur(i)">Ürün {{i}}</li>
+  </ul>
+</div>
+<script>
+	new Vue({
+    el : '#app',
+    data : {
+    	urunler : ["Monitör","Klavye","Fare","Hoparlör",]
+    },
+    methods : {
+    	idOlustur : function(i){
+      	return "buton"+i
+      }
+    }
+	});
+</script>
+

@@ -2,24 +2,24 @@
 
 <div id="app">
   <h2>v-model ile iki yönlü veri bağlama</h2>
+  <h3>aşağıya sari veya red sınıflarının adlarını yazabilirsiniz.</h3>
   <input :class="veri" type="text" v-model="veri">
-  <h3>{{veri}}</h3>
 </div>
 
 <script>
 	new Vue({
   	el : "#app",
     data : {
-    	veri : "deneme"
+    	veri : "sari"
     },
   })
 </script>
 
 <style>
-  .deneme{
+  .sari{
     background-color : yellow;
   }
-  .deneme1{
-    background-color : red;
+  .red{
+    background-color : orangered;
   }
 </style>

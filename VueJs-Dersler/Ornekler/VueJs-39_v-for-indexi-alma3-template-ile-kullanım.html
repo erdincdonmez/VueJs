@@ -1,0 +1,26 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+template içerisinde listeleme
+  <template v-for="(urun, yer) in urunler">
+    <h3>Ürün adı : {{urun}}</h3>
+    <p>İndeksi : {{yer}}</p>
+  </template>
+  <hr>
+  div içerisinde listeleme
+  <div v-for="(urun, yer) in urunler">
+    <h3>Ürün adı : {{urun}}</h3>
+    <p>İndeksi : {{yer}}</p>
+  </div>  
+  <!-- VueJs temlate elementini render etmez. Yeni HTML kodu oluşturmaz. Dolayısıyla container olarak kullanılabilir.-->
+</div>
+<script>
+	new Vue({
+  el : '#app',
+  data : {
+    urunler : ["Monitör","Klavye","Fare","Hoparlör"]
+  } 
+});
+
+</script>
+

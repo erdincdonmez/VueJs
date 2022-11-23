@@ -1,0 +1,59 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="exercise">
+  <!-- 1) Butona tıklayarak <p> elementleri arasında bir Toggle İşlevi yapın. Hem v-if hem de v-show syntax'larını kullanarak bu işlemi gerçekleştiriniz. Aralarındaki farkı Öğeyi İncele diyerek bu iki syntax farkını gözlemleyiniz -->
+  <div>
+    <button @click="durum1=!durum1">Toggle</button>
+    <p v-if="durum1">Beni Görebiliyor musun?1</p>
+    <p v-if="!durum1">Ya da beni görebiliyor musun?2</p>
+    <p v-show="durum1">Beni Görebiliyor musun?3</p>
+    <p v-show="!durum1">Ya da beni görebiliyor musun?4</p>
+  </div>
+  <!-- 2) Array kullanarak bir <ul> listesi oluşturunuz. Liste içerisinde hem Array'deki verinin değerini hem de index numarasını her bir elementin içerisine yazdırınız  -->
+  <ul>
+    <li v-for="(meyve,sira) in meyveler">item {{meyve}} | index {{sira}}</li>
+  </ul>
+  <!-- 3) Yan taraftaki objenin tüm key ve value verilerini yazdırınız: customObject: {title: 'Game of Thrones',author: 'George R.R',books: '7'}. Ayrıca tüm elementlerin index numarasını da yazdırınız. -->
+  <ul>
+    <li v-for="item in customObject">{{item}}</li>
+  </ul>
+  <ul>
+    <ul v-for="(item,key) in customObject">
+      <li v-for="(veri,key) in item">veri {{veri}} | key {{key}}</li>
+    </ul>
+  </ul>
+  <!-- 4) Yan taraftaki objenin tüm value değerlerini yazdırınız. Ayrıca iç içe bir loop daha kurarak Array içerisindeki verileri de yazdırınız : { name: 'NesnedLoop', id: 19,data: [4.3, 2.67, 10.42, 1402] } (ipucu: v-for ve v-if Directive'lerinin beraber kullanımı bunu başarmanızı sağlayacaktır.) -->
+  <ul>
+  yeniNesne içerisindeki elemanlar-
+    <ul v-for="(veri,anahtar) in yeniNesne">
+      <li >veri : {{veri}} | anahtar : {{anahtar}}</li>
+      <p v-if="anahtar!='data'">
+        anahtar adı data değil
+        <!-- <li v-for="deger in veri">{{deger}}</li> -->
+        </p>
+        <ul v-else>
+          <li v-for="deger in veri">{{deger}}</li>
+        </ul> <!-- BUNU SOR -->
+    </ul>
+  </ul>
+</div>
+<script>
+  new Vue({
+    el: "#exercise",
+    data: {
+      durum1: true,
+      meyveler: ["Şeftali", "Karpuz", "Kiraz"],
+      customObject: {
+        title: 'Game of Thrones',
+        author: 'George R.R',
+        books: '7'
+      },
+      yeniNesne: {
+        name: 'NesnedLoop',
+        id: 19,
+        data: [4.3, 2.67, 10.42, 1402]
+      }
+    }
+  })
+
+</script>
