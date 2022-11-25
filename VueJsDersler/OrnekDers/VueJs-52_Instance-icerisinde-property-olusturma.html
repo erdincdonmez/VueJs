@@ -1,0 +1,28 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="instans1">
+  <h2>{{bilgi1}}</h2>
+</div>
+<div id="ornek2">
+  <h2>{{bilgi2}}</h2>
+</div>
+
+<script>
+  nesne1 = new Vue({
+    el: "#instans1",
+    data: {
+      bilgi1: "Bilgi1 içeriği"
+    }
+  });
+  nesne2 = new Vue({
+    el: "#ornek2",
+    data: {
+      bilgi2: "Bilgi2 içeriği"
+    }
+  });
+  
+  nesne2.bilgi2 = "Bu alan 1.instance içindeki bilgi1 adlı data'ya ait idi.";
+  
+	nesne1.newProperty ="TestMetni1";
+  console.log(nesne1); // dışarıdan property ekleyebiliyoruz fakat reactivity olarak kullanamıyoruz. Watcher layer buna izin vermiyor.
+</script>

@@ -1,0 +1,25 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="instans1">
+  <h2>{{bilgi1}}</h2>
+</div>
+<div id="ornek2">
+  <h2>{{bilgi2}}</h2>
+</div>
+
+<script>
+  new Vue({
+    el: "#instans1",
+    data: {
+      bilgi1: "Bilgi1 içeriği"
+    }
+  });
+  new Vue({
+    el: "#ornek2",
+    data: {
+      bilgi2: "Bilgi2 içeriği"
+    }
+  });
+  
+
+</script>
