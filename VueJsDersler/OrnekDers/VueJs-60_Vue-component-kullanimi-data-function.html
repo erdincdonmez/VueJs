@@ -1,0 +1,27 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="App">
+  <urun></urun>
+  <urun></urun>
+  <urun></urun>  
+</div>
+<script>
+  
+	Vue.component('urun',{
+    data : function (){ 
+    	return {
+      	durum : false
+      } 
+    },
+  	template : "<div><h1 style='color:red'>Ürün adı</h1><h2>Ürün açıklaması</h2><h2>Durum : {{durum}}</h2> <button @click='durumDegistir'>Değiştir</button></div>",
+    methods : {
+    	durumDegistir : function(){
+      	this.durum = !this.durum
+      }
+    }
+  });
+
+    new Vue ({
+      el : "#App"
+    }) 
+</script>

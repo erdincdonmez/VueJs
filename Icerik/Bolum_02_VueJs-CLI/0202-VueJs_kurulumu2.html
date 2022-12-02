@@ -28,64 +28,7 @@
             </code>
             <br>
             <br>
-        <li>CLI (Command Line Interface) kurulumu ile kullanım</li>
-        <p>VueJs CLI ile çalışmaya başlamak için önce sisteminize kurmanız gerekmektedir.</p>
-        <p>
-            <ol>
-                <h3>Kurulum için</h3>
-                <li>VueJs CLI'yi bilgisayara kurmak için npm (node package manager) kullanıyoruz.</li>
-                <li>nmp nodejs ile çalıştığı için bilgisayarınızda node.js kurulu olması gerekir</li>
-                <li>nodejs kurulu olup olmadığını anlamak için vscode üzerindeki terminal ekranından veya cmd penceresinden <code>node -v</code> komutu vermeniz yeterlidir. </li>
-                <li>Bu moutu verince node versiyonunu veriyorsa sorun yok vermiyorsa/hata ile karşılaşıyorsanız nodejs'yi indirip kurmanız gerekir.</li>
-                <li><a href="https://nodejs.org/en/download/">https://nodejs.org/en/download/</a> linkinde kendinize uygun olanını indirip kurmanız gerekir.</li>
-                <li>Kurulum normal tamamlandıktan sonra vscode u yeniden başlatıp terminal penceresine veya windows'un cmd penceresine <code>node -v</code> komutu ile kontrol edebilirsiniz.</li>
-                <li>node.js ile birlikte bilgisayarınıza npm de (node package manager) yüklenmiş olacaktır.</li>
-                <li><code>node -v</code> komutundan olumlu sonuç alıyorsanız, <code>npm -v</code> ile npm versiyonunu kontrol edin.</li>
-                <li>herhangi bir sıkıntı yok ise <code> npm install vue@next</code> ile vue@next kurulumunu yapın</li>
-                <li><code>npm install -g @vue/cli</code> komutu ile vue/cli yükleyin. -g parametresi ile global yani her yerden görülebilir şekilde kurulur. </li>
-                <li>Üsteki adım yerine <code>npm ui</code> komutu ile vue/cli user interface ile de yükleyebilirsiniz. </li>
-                <li>Vue CLI için  </li>
-
-              
-                <li><code>vue create my-new-app</code> ile uygulamamızı oluşturuyoruz.</li>
-                <li><code>vue create my-new-app</code> ile uygulamamızı oluşturken <b style="color:brown">...AppData\Roaming\npm\vue.ps1 cannot be loaded because running scripts is disabled on this system</b> hatası alırsanız power shell'de aşağıdaki komutu çalıştırabilirsiniz.</li>
-                <li><code>Set-ExecutionPolicy RemoteSigned</code> bu komut ile ilgili detaya <a href="https://www.tasarimkodlama.com/web-tasarimi/vue-js/cozum-appdataroamingnpmvue-ps1-cannot-be-loaded-because-running-scripts-is-disabled-on-this-system/">bu linkten</a> ulaşabilirsiniz.</li>
-                <li>Konu ile ilgili başka bir yazıyı da <a href="https://learn.microsoft.com/tr-tr/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-7.3"> buradan</a> bulabilirsiniz.</li>
-                <li>Proje içerisine girip:</li>
-                <li><code>vue upgrade - next</code> komutunu çalıştırıyoruz.</li>
-                <li><code>npm run dev</code> komutu ile projemizi çalıştırıyoruz.</li>
-                <li><code>npm run dev</code> çalışmaz ise <code>npm run serve</code> ile de çalıştırabilirsiniz.</li>
-                <li><code>npm run dev</code> veya <code>npm run serve</code> komutlarını çalıştırırken projeyi oluşturduğunuz klasöre girmiş olmanız gerektiğini unutmayın.</li>
-            </ol>
-        </p>
-        Yaralanılan kaynak : <a href="https://medium.com/kodcular/vue-js-vue-js-nedir-25d2a0b04bfb">https://medium.com/kodcular/vue-js-vue-js-nedir-25d2a0b04bfb</a>
-    </ol>
-  <hr>
-  <hr>
-  <hr>
-
-    <h1>VueJs kullanmaya başlama</h1>
-    <p>VueJs'i ile kodlama yapabilmek için iki yöntemden birini kullanabilirsiniz. </p>
-    <ol>
-        <li>CDN ile kullanım</li>
-            <p>
-                CDN (Content Delivery Network/İçerik Dağıtım Ağı) ile değişik dosya içeriklerine online olarak ulaşabilirsiniz.
-                Bazı JavaScript dosyalarına da web sayfalarınızdan içerik dağıtım ağına (CDN) referans vermek suretiyle ulaşıp oradaki halini kullanabilirsiniz.
-                Bunun için sayafanızın başına (head elementi içine) aşağıdaki kod satırlarından birini eklemeniz yeterli olacaktır.
-                <br>
-                <!--&lt;script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"&gt;&lt;/script&gt;-->
-            </p>
-            <code>
-                &lt;script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"&gt;&lt;/script&gt;
-            </code>
-            <br>
-            <code>
-                &lt;script src="https://unpkg.com/vue@next"&gt;&lt;/script&gt;
-
-            </code>
-            <br>
-            <br>
-        <li>CLI kurulumu ile kullanım 2 (yukarıdaki ile birleştirilecek)</li>
+        <li>CLI kurulumu ile kullanım</li>
         <p>VueJs CLI ile çalışmaya başlamak için önce sisteminize kurmanız gerekmektedir.</p>
         <p>
             <ol>
@@ -130,21 +73,6 @@
       <li>Sonrasında proje klasörüne girip <code>npm install</code> ile kurulumu tamamla.</li>
     </ul>
   </ul>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   
     <style>
         code{

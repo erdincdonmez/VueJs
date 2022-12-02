@@ -1,0 +1,93 @@
+<template>
+  <div class="container">
+    <div class="row">
+      <headerBar></headerBar> 
+       <header-bar></header-bar> <!--Büyük harf yerine - ile küçük harf şeklinde de yazılabilir. -->
+    </div>
+    <hr>
+    <div class="row">
+      <sunucu-durumu></sunucu-durumu>
+      <sunucubilgisi></sunucubilgisi>
+      
+    </div>
+    <hr>
+    <footer></footer>
+  </div>
+</template>
+
+<script>
+    import sunucuDurumu from './components/sunucu-durumu.vue';
+    import headerBar from './components/header-bar.vue';
+    import footer from './components/footer.vue';
+    import sunucubilgisi from './components/sunucubilgisi.vue';
+    export default{
+        components : {
+            "sunucu-durumu" : sunucuDurumu, // klasik component tanımlama şekli
+            headerBar : headerBar, // component adında - işareti yoksa çift tırnağa gerek yok.
+            footer, // key ve value aynı ise Ecma Script-6 sayesinde birini yazmak yeterli.
+            "sunucubilgisi" : sunucubilgisi
+        }
+    }
+</script>
+
+<style>
+
+</style>
+
+
+<!-- Komponentlerin tanımı da aşağıdaki gibi. -->
+<!-- 
+  <template>
+  <div class="col-xs-12 col-sm-6">
+      <p>Sunucu Bilgisi güncel değil!!</p>
+    </div>
+</template>
+<script>
+  export default{}
+</script> -->
+
+<!-- Komponentlerin stillendiirlmesinde sadece stil tanımı yapılırsa stil her yere uygulanır -->
+<!--
+  <style scoped> 
+  </style>
+  ile yapılırsa sadece ilgili component için geçerli olur.
+-->
+<!--sunucu-durumu.vue-->
+<!--
+  <template>
+  <div class="col-xs-12 col-sm-6">
+    <ul class="list-group"> 
+      <li
+        class="list-group-item"
+        v-for="index in 5">
+        Sunucu #{{ index }}
+      </li>
+    </ul> 
+  </div>
+
+</template>
+<script>
+    export default{}
+</script>
+<style scoped>
+  div{
+    border : 2px yellow solid;
+  }
+</style>
+-->
+<!-- sunucubilgisi.vue -->
+<!--
+  <template>
+    <div class="col-xs-12 col-sm-6">
+        <p>Sunucu Bilgisi güncel değil!!</p>
+      </div>
+</template>
+<script>
+    export default{}
+</script>
+<style scoped>
+    div {
+        border : 2px red solid;
+    }
+</style>
+-->

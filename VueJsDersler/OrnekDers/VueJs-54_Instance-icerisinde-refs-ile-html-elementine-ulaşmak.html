@@ -16,6 +16,7 @@
     }
   });
   nesne2 = new Vue({
+    el: "#ornek2",
     data: {
       bilgi2: "Bilgi2 içeriği"
     }
@@ -24,10 +25,10 @@
   nesne2.bilgi2 = "Bu alan 1.instance içindeki bilgi1 adlı data'ya ait idi.";
   
 	nesne1.newProperty ="TestMetni1";
-  console.log(nesne1); 
+  console.log(nesne1); // dışarıdan property ekleyebiliyoruz fakat reactivity olarak kullanamıyoruz. Watcher layer buna izin vermiyor.
+  
   setTimeout(function(){
-  	nesne1.$refs.buton1.innerText = "refs ile ulaşılan DenemeButonu";
-    nesne2.$mount("#ornek2"); // oluşturulmuş bir instance'a template'i bağlamızı sağlar.
+  	nesne1.$refs.buton1.innerText = "refs ile ulaşılan DenemeButonu"
   },3000);
   
 </script>

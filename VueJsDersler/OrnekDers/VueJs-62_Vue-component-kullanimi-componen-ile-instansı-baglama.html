@@ -1,0 +1,46 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="App1">
+  <h1>App1 instası için template</h1>
+  <urun></urun>
+  <urun></urun>
+  <urun></urun>  
+</div>
+<hr>
+<div id="App2">
+  <h1>App2 instası için template</h1>
+  <urun></urun>
+  <urun></urun>
+</div>
+<script>
+  
+//	Vue.component('urun',{
+	var komponent = {
+    data : function (){ 
+    	return {
+      	durum : false
+      } 
+    },
+  	template : "<div><h2 style='color:red'>Ürün adı</h2><h3>Ürün açıklaması</h3><h3>Durum : {{durum}}</h3> <button @click='durumDegistir'>Değiştir</button></div>",
+    methods : {
+    	durumDegistir : function(){
+      	this.durum = !this.durum
+      }
+    }
+  }
+
+    new Vue ({
+      el : "#App1"
+    }) 
+    new Vue ({
+      el : "#App2",
+      components : {
+        urun : komponent
+      }
+    }) 
+  
+</script>
+
+<!-- 
+https://jsfiddle.net/erdincdonmez/5wj7fcay/1308/
+-->

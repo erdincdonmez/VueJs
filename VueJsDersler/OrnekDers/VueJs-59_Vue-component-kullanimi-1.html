@@ -1,0 +1,30 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="App">
+  <urun></urun>
+  <urun></urun>
+  <urun></urun>  
+</div>
+<script>
+  
+	Vue.component('urun',{
+  // VVV bu kullanımı bizim için sorun oluşturuyor. 
+/*   	data : {
+  	      durum : "pasif"
+  	    },  */
+    data : function (){ // Bunun yerine fonksiyon ile obje döndürerek kullanmak sorunu çözer.
+    	return {
+      	durum : "pasif"
+      } 
+    },
+  	template : "<div><h1 style='color:red'>Ürün adı</h1><h2>Ürün açıklaması</h2><h2>Durum : {{durum}}</h2></div>"
+  });
+
+	/* var vm1 = new Vue({})
+	  vm1.$mount("#App"); */ 
+    // Bu satırlarla mount edilebilir ya da componentin hayat bulacağı element seçilebilir. 
+    //Bunun yerine bu sefer new Vue diyerek ilerleyeceğiz.
+    new Vue ({
+      el : "#App"
+    }) 
+</script>
