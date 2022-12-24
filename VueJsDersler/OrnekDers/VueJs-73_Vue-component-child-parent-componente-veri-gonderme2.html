@@ -1,0 +1,248 @@
+<template>
+    <app-user></app-user>
+</template>
+
+<script>
+  import User from "./components/User";
+
+export default {
+  components : {
+    appUser : User
+  }
+}
+</script>
+
+<!--User.vue-->
+<!--
+<template>
+<template>
+    <app-user></app-user>
+</template>
+
+<script>
+  import User from "./components/User";
+
+export default {
+  components : {
+    appUser : User
+  }
+}
+</script>
+
+<!--User.vue-->
+<!--
+<template>
+<template>
+  <div class="container">
+    <h1>Parent Component (User)</h1>
+    <p>Burası parent component yani herşeyin import edildiği component :)</p>
+    <button @click="veriGonder">Alt komponente bilgi gönder</button>
+    => {{gonderilecekBaslik}}
+    <p>Childtan gelen veri => {{childVerisi}}</p>
+    <hr>
+    <div class="row">  <!-- VVV v-on ile @ aynı manaya geliyordu. -->
+      <app-user-detail @childtanGelen="childVerisi = $event" :parenttenTrasfer="gonderilecekBaslik"></app-user-detail>
+      <app-user-edit></app-user-edit>
+    </div>
+  </div>
+</template>
+<script>
+  import UserDetail from "./UserDetail";
+  import UserEdit from "./UserEdit";
+  export default {
+    components : {
+      appUserDetail : UserDetail,
+      appUserEdit : UserEdit,
+    },
+    data : function(){
+      return {
+        gonderilecekBaslik : "Gönderilecek başlık",
+        //gonderilecekBaslik : 123
+        childVerisi : ""
+      }
+    },
+    methods : {
+      veriGonder : function (){
+        this.gonderilecekBaslik = "Gönderilen başlık"
+      }
+    }
+  }
+</script>
+
+<style>
+  div.container{
+    margin-top: 30px;
+    padding: 20px 40px;
+    background-color: #6a8d99;
+    border: 1px solid #666;
+  }
+  div.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+</style>
+
+
+-->
+<!--------------------------------------------------------->
+<!-- UserDetail.vue -->
+<!--
+<template>
+  <div class="wcol-md-6">
+    <h3>Child Component 1</h3>
+    <p>Ben User.vue isimli Parent Component'in içerisindeki bir Child componentim</p>
+    Parent komponentten gelen veri => {{parenttentenTrasfer}}
+    <br>
+    Parent komponentn gelenin tersi => {{geleniCevir()}}
+    <button @click="parenteGonder">Parent'e "selam" gönder.</button>
+  </div>
+</template>
+<script>
+  export default{
+    //props : ["parenttenTrasfer"], // burada gelen verinin türü kontrol edilmiyor. 
+    //Sayısal veri gelirse problem teşkil etmesin diye aşağıdaki gibi kullanılabilir.
+    props : {
+      parenttenTrasfer : {
+        type : String, // alana gelecek verinin String olması gerektiğini belirtir.
+        //required : true, // alanın zorunlu olduğunu ifade eder.
+        default : "buraya veri gelmezse bu yazı çıkacak."
+
+      },
+    },
+    methods : {
+      geleniCevir (){
+        return this.parenttenTrasfer.split("").reverse().join(""); 
+      },
+      parenteGonder () {
+        this.$emit("childtanGelen", "Bu veri child'tan geldi.")// thisten sonra gelen $ ile başlayan ifadeler (vue instası tarafından kullanılan) ya ptroperty veya methodu ifadede eder.
+      }
+    }
+  }
+</script>
+<style scoped>
+  div {
+    background-color: lightcoral;
+    padding: 20px;
+    border: 1px solid #666;
+    display: inline-block;
+  }
+</style>
+
+
+
+-->
+
+
+
+<!--------------------------------------------------------->
+<!-- UserEdit.vue -->
+<!--
+  <template>
+  <div class="col-md-s6">
+    <h3>Child Component 2</h3>
+    <p>Ben User.vue isimli Parent Component'in içerisindeki bir diğer Child componentim</p>
+  </div>
+</template>
+<script></script>
+
+<style scoped>
+  div {
+    background-color: lightgoldenrodyellow;
+    padding: 20px;
+    border: 1px solid #666;
+    display: inline-block;
+  }
+</style>
+
+
+-->
+
+
+
+
+<!--------------------------------------------------------->
+<!---->
+<!---->
+
+
+-->
+<!--------------------------------------------------------->
+<!-- UserDetail.vue -->
+<!--
+<template>
+  <div class="wcol-md-6">
+    <h3>Child Component 1</h3>
+    <p>Ben User.vue isimli Parent Component'in içerisindeki bir Child componentim</p>
+    Parent komponentten gelen veri => {{parenttentenTrasfer}}
+    <br>
+    Parent komponentn gelenin tersi => {{geleniCevir()}}
+    <button @click="parenteGonder">Parent'e "selam" gönder.</button>
+  </div>
+</template>
+<script>
+  export default{
+    //props : ["parenttenTrasfer"], // burada gelen verinin türü kontrol edilmiyor. 
+    //Sayısal veri gelirse problem teşkil etmesin diye aşağıdaki gibi kullanılabilir.
+    props : {
+      parenttenTrasfer : {
+        type : String, // alana gelecek verinin String olması gerektiğini belirtir.
+        //required : true, // alanın zorunlu olduğunu ifade eder.
+        default : "buraya veri gelmezse bu yazı çıkacak."
+
+      },
+    },
+    methods : {
+      geleniCevir (){
+        return this.parenttenTrasfer.split("").reverse().join(""); 
+      },
+      parenteGonder () {
+        this.$emit("childtanGelen", "Bu veri child'tan geldi.")// thisten sonra gelen $ ile başlayan ifadeler (vue instası tarafından kullanılan) ya ptroperty veya methodu ifadede eder.
+      }
+    }
+  }
+</script>
+<style scoped>
+  div {
+    background-color: lightcoral;
+    padding: 20px;
+    border: 1px solid #666;
+    display: inline-block;
+  }
+</style>
+
+
+
+-->
+
+
+
+<!--------------------------------------------------------->
+<!-- UserEdit.vue -->
+<!--
+  <template>
+  <div class="col-md-s6">
+    <h3>Child Component 2</h3>
+    <p>Ben User.vue isimli Parent Component'in içerisindeki bir diğer Child componentim</p>
+  </div>
+</template>
+<script></script>
+
+<style scoped>
+  div {
+    background-color: lightgoldenrodyellow;
+    padding: 20px;
+    border: 1px solid #666;
+    display: inline-block;
+  }
+</style>
+
+
+-->
+
+
+
+
+<!--------------------------------------------------------->
+<!---->
+<!---->
