@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<!--   <script src="https://unpkg.com/vue@3"></script> -->
+
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <h1>v-for</h1>
+  </div>
+</body>
+</html>
+<script>
+  const app = Vue.createApp({
+    template:`
+    <!--<h1 style="color:red"> Renkli başlık</h1>--> <!--klasik çalışan şekli-->
+    <!--<h1 v-bind:style="kirmiziRenk"> Renkli başlık</h1>--> <!--v-bind ile datadan alarak çalışan şekli-->
+    <h1 :style="kirmiziRenk"> Renkli başlık</h1> <!--v-bind yerine : ile çalışan şekli-->
+    `,
+    data(){
+      return{
+        kirmiziRenk : "color:red; border-style:solid;"
+      }
+    },
+    methods:{
+      
+    },
+    
+  });
+  app.mount('#app')
+</script>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<!--   <script src="https://unpkg.com/vue@3"></script> -->
+</head>
+<body>
+  <div id="app">
+    <h1>Mevcut başlık</h1>
+  </div>
+</body>
+</html>
+
+<script>
+  const app = Vue.createApp({
+    template:`
+    <div v-if="showInfo">Başlık : {{baslikMetni}}</div>
+    <h2 v-show="showInfo">İçerik : {{icerik}}</h2>
+    <button @:click="toggle">
+      <span v-if="!showInfo">Göster</span>
+      <span v-else>Gizle</span>
+    </button>
+    `,
+    data(){
+      return{
+        baslikMetni : "Datadan gelen başlık metni",
+        icerik : "Datadan gelen içerik",
+        showInfo : true,
+      }
+    },
+    methods:{
+      toggle(){
+        this.showInfo=!this.showInfo;
+      }
+    }
+  });
+  app.mount('#app')
+</script>

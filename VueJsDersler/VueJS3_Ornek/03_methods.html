@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<!--   <script src="https://unpkg.com/vue@3"></script> -->
+</head>
+<body>
+  <div id="app">
+    <h1>Mevcut başlık</h1>
+  </div>
+</body>
+</html>
+
+<script>
+  const app = Vue.createApp({
+    template:`
+    <h1>Başlık : {{baslikMetni}}</h1>
+    <h2>İçerik : {{icerik}}</h2>
+    <p>yorumSayisi : {{yorumSayisi}}</p>
+    <button v-on:click="ekle()">Yorum ekle {{yorumSayisi}}</button>
+    <h2>Yazı : {{yazi}}</h2>
+    `,
+    data(){
+      return{
+        baslikMetni : "Datadan gelen başlık metni",
+        icerik : "Datadan gelen içerik",
+        yorumSayisi : 0,
+        yazi : "Datadan gelen yazı içeriği"
+      }
+    },
+    methods:{
+      ekle(){
+        console.log("Ekle metodu çalıştı");
+        this.yorumSayisi++;
+        this.yazi=`${this.yorumSayisi} tane yorum yapıldı`
+      }
+    }
+  });
+  app.mount('#app')
+</script>
